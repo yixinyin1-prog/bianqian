@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover + 下面的 env(safe-area-inset-*) 一起，才能让内容避开
+         iPhone 的刘海和底部横条；maximum-scale=1 防止输入框聚焦时 iOS 自动放大页面 -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover"
+    />
+    <title>便签计划</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="theme-color" content="#12151b" />
+
+    <!-- iOS 至今不认标准的 manifest，这几条私有 meta 是「添加到主屏幕」
+         能全屏、能用对图标的唯一途径 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="便签计划" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <script type="module" crossorigin src="./assets/main-CCIESPrg.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/main-BoSVqAf8.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // 只有网页版才注册 SW。Tauri 里资源是从自定义协议加载的，
+      // 注册了不但没用还会报错
+      if ('serviceWorker' in navigator && !window.__TAURI_INTERNALS__) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js').catch(() => {})
+        })
+      }
+    </script>
+  </body>
+</html>
