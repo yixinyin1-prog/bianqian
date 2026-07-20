@@ -11,8 +11,8 @@
  */
 
 // 改动这个版本号会让旧缓存整个作废。每次部署都应该变，
-// 构建时会把 20260719170316 替换成真实的构建时间戳
-const CACHE = 'desknotes-20260719170316'
+// 构建时会把 20260720035707 替换成真实的构建时间戳
+const CACHE = 'desknotes-20260720035707'
 
 /**
  * 必须预缓存的资源清单，构建时由 vite 插件注入真实文件名（带 hash）。
@@ -27,11 +27,11 @@ const PRECACHE = [
   "./index.html",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
-  "./assets/main-DCfL5CPk.css",
-  "./assets/main-t-jHbk8p.js",
+  "./assets/main-BDzyUnQ-.js",
+  "./assets/main-BoPLEoyI.css",
   "./assets/sql-wasm.wasm",
   "./assets/webimages-C2Ox3bgK.js",
-  "./assets/websql--kga6HDJ.js"
+  "./assets/websql-CkMT0LZL.js"
 ]
 
 self.addEventListener('install', (e) => {
